@@ -1,3 +1,6 @@
+# MiHive (c) 2014 David Tarrant
+# License: GPLv3
+
 import cookielib
 import urllib
 import urllib2
@@ -6,7 +9,9 @@ import os
 import time
 from datetime import date
 
-json_data=open('config.json')
+# Open config file
+json_data=open('/home/pi/MiHive-dev/config.json')
+
 config = json.load(json_data)
 json_data.close()
 
