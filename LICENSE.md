@@ -1,4 +1,5 @@
-=MiHive=
+# MiHive
+
 Data recorder for Hive active heating systems (http://www.hivehome.com)
 
 Copyright (C) 2014 David Tarrant
