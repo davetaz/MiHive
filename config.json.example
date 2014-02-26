@@ -1,0 +1,7 @@
+{
+  "config": [
+	{ "username":"email@example.com" },
+	{ "password":"password" },
+	{ "dataPath":"/home/pi/MiHive/data/"}
+  ]
+} 
