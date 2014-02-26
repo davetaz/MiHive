@@ -1,10 +1,10 @@
-=MiHive
+# MiHive
 
 Data recorder for Hive active heating systems (http://www.hivehome.com)
 
 Downloads core Hive data from the website for your own use.
  
-==Instalation
+## Instalation
 
 * This was designed to run on a raspberry pi or other unix system and use cron to download data every 5 minutes.
 
