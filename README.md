@@ -2,7 +2,11 @@
 
 Data recorder for Hive active heating systems (http://www.hivehome.com)
 
-Downloads Hive JSON data from the website for your own use.
+Downloads Hive JSON data from the website for your own use. 
+
+File are output as csv, one per day in the following structure:
+   
+    YYYY/MM/DD.csv
  
 ## Instalation
 

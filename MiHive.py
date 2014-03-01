@@ -5,6 +5,7 @@ import cookielib
 import urllib
 import urllib2
 import json
+from csv import DictWriter
 import os
 import time
 from datetime import date
@@ -48,17 +49,23 @@ def writeToFile(data):
    month = date.today().month
    day = date.today().day
    fullpath = dataPath + "/" + str(year) + "/" + str(month).zfill(2);
-   file = fullpath + "/" + str(day).zfill(2) + ".json"
+   file = fullpath + "/" + str(day).zfill(2) + ".csv"
    if not os.path.exists(fullpath):
 	os.makedirs(fullpath) 
+ 
+   dicts = data
 
    if os.path.exists(file):
-	with open(file, 'a+') as outfile:
-		outfile.writelines(",\n")
-		json.dump(data, outfile)
-   else:
-   	with open(file, 'a+') as outfile:
-		json.dump(data, outfile)
+        outfile = open(file,"a+")
+        writer = DictWriter(outfile, dicts.keys())
+	writer.writerow(dicts)
+   else:	
+        outfile = open(file,"a+")
+        writer = DictWriter(outfile, dicts.keys())
+        writer.writeheader()
+	writer.writerow(dicts)
+
+   outfile.close()
 
 # Store the cookies and create an opener that will hold them
 cj = cookielib.CookieJar()
