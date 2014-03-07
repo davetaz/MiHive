@@ -111,3 +111,7 @@ water = json.loads(body)
 jsonData['hotWater'] = water['current']
 
 writeToFile(jsonData)
+
+# Logout
+url = 'https://www.hivehome.com/login'
+makeRequest(url,None)
