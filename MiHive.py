@@ -78,7 +78,7 @@ opener.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) Ap
 # we just made, but you can also just call opener.open() if you want)
 urllib2.install_opener(opener)
 
-url = 'https://www.hivehome.com/login'
+url = 'https://my.hivehome.com/login'
 payload = {
   'username':username,
   'password':password
@@ -92,20 +92,20 @@ timeStamp = time.time()
 
 # Get temporature (weather) data for inside and out
 opener.addheaders = [('Accept', 'application/json')];
-url = 'https://www.hivehome.com/myhive/weather';
+url = 'https://my.hivehome.com/weather';
 body = makeRequest(url,None)
 jsonData = json.loads(body)
 jsonData['time'] = timeStamp
 
 # Get heating target temporature
 opener.addheaders = [('X-Requested-With', 'XMLHttpRequest')];
-url = 'https://www.hivehome.com/myhive/heating/target';
+url = 'https://my.hivehome.com/heating/target';
 body = makeRequest(url,None)
 target = json.loads(body)
 jsonData['target'] = target['target']
 
 # Get hot water status
-url = 'https://www.hivehome.com/myhive/hotwater/schedule';
+url = 'https://my.hivehome.com/hotwater/schedule';
 body = makeRequest(url,None)
 water = json.loads(body)
 jsonData['hotWater'] = water['current']
@@ -113,5 +113,5 @@ jsonData['hotWater'] = water['current']
 writeToFile(jsonData)
 
 # Logout
-url = 'https://www.hivehome.com/login'
+url = 'https://my.hivehome.com/login'
 makeRequest(url,None)
